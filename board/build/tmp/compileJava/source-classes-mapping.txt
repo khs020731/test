@@ -1,0 +1,16 @@
+com/example/board/domain/repository/BoardRepository.java
+ com.example.board.domain.repository.BoardRepository
+com/example/board/dto/BoardDto.java
+ com.example.board.dto.BoardDto
+ com.example.board.dto.BoardDto$BoardDtoBuilder
+com/example/board/domain/entity/TimeEntity.java
+ com.example.board.domain.entity.TimeEntity
+com/example/board/BoardApplication.java
+ com.example.board.BoardApplication
+com/example/board/domain/entity/BoardEntity.java
+ com.example.board.domain.entity.BoardEntity
+ com.example.board.domain.entity.BoardEntity$BoardEntityBuilder
+com/example/board/controller/BoardController.java
+ com.example.board.controller.BoardController
+com/example/board/service/BoardService.java
+ com.example.board.service.BoardService
