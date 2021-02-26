@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Board</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar is-white topNav">
+    <div class="container">
+        <div class="navbar-brand">
+            <div class="navbar-burger burger" data-target="topNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="topNav" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" th:href="@{/}">Home</a>
+                <a class="navbar-item" th:href="@{/board/list}">Board</a>
+               
+            </div>
+
+                    </div>
+                </div>
+        
+</nav>
+<table class="table" style="width:80%; margin-left: 10%; margin-top: 20px;" >
+    <thead>
+    <tr>
+        <th><abbr title="Bno">No</abbr></th>
+        <th><abbr title="Btitle">Title</abbr></th>
+        <th><abbr title="Bwriter">Writer</abbr></th>
+        <th><abbr title="Bdate">Date</abbr></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list: ${userlist}" th:if="${list.writer==uid}">
+    <td><a th:href="@{/board/view(bno=${list.bno})}">[[${list.bno}]]</a></td>
+    <td th:text="${list.writer}"></td>
+        <td th:text="${list.title}"></td>
+        <td th:text="${list.content}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>

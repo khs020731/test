@@ -1,0 +1,41 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Join</title>
+     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css'>
+      <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="login">
+  <div class="login-card">
+
+    <div class="card-title">
+      <h1>Please Sign Up</h1>
+    </div>
+
+    <div class="content">
+      <form method="post">
+
+         <input id="email" type="text" name="uid" title="id" placeholder="ID Only English and Number" required autofocus onkeyup="this.value=this.value.replace(/[^a-zA-Z_0-9]/g,'');">
+        <input id="password" type="password" name="upw" title="password" placeholder="Password" required>
+        <input id="email" type="text" name="uname"  title="name" placeholder="Name" required autofocus>
+
+        <div class="level options">
+          <div class="checkbox level-left">
+            <input type="hidden" name="roles[0].roleName"  value="GUEST">
+          </div>
+        </div>
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+       <button type="submit" class="btn btn-primary">Join</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+
+

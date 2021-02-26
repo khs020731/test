@@ -1,0 +1,55 @@
+
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css'>
+
+      <link rel="stylesheet" href="/css/style.css">
+ 
+</head>
+
+<body>
+<div id="login">
+  <div class="login-card">
+
+    <div class="card-title">
+      <h1>Please Sign In</h1>
+        <div th:if="${param.error!=null}">
+					<h2><center>Invalid ID or Password</center></h2>
+						<h2 th:value="${param.error}"></h2>
+					</div>
+					<div th:if="${param.logout !=null}">
+						<h2><center>You have been logged out.</center></h2>
+					</div>
+    </div>
+
+    <div class="content">
+      <form method="post">
+
+         <input id="email" type="text" name="username" title="id" placeholder="ID" required autofocus>
+        <input id="password" type="password" title="password" name="password"  placeholder="Password" required>
+
+        <div class="level options">
+          <div class="checkbox level-left">
+            <input type="checkbox" id="checkbox" name="remember-me" class="regular-checkbox">
+            <label for="checkbox"></label>
+            <span>Remember me</span>
+          </div>
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+          <a class="btn btn-link level-right" th:href="@{/member/join}">Sign up</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+
+
+
+  

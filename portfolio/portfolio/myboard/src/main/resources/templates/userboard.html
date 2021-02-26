@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>adminpage</title>
+		<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<!-- Bulma Version 0.8.x-->
+		<link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/forum.css">
+	</head>
+	<body>
+	<article class="message is-primary">
+  <div class="message-header">
+    <p>관리자페이지</p><h1 th:text="${uid}"></h1>
+     <a th:href="@{/adminpage}"><button class="delete" aria-label="delete"></button></a>
+  </div>
+  <table class="table" style="width:80%; margin-left: 10%; margin-top: 20px;" >
+    <thead>
+    <tr>
+    <th><abbr title="Bno">No(게시글보기)</abbr></th>
+       <th><abbr title="Bwriter">Writer</abbr></th>
+        <th><abbr title="Btitle">Title</abbr></th>
+        <th><abbr title="Bcontent">Content</abbr></th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr th:each="list: ${userlist}" th:if="${list.writer==uid}">
+    <td><a th:href="@{/board/view(bno=${list.bno})}">[[${list.bno}]]</a></td>
+    <td th:text="${list.writer}"></td>
+        <td th:text="${list.title}"></td>
+        <td th:text="${list.content}"></td>
+    </tr>
+    </tbody>
+</table>
+    
+</article>
+	
+
+	</body>
+</html>

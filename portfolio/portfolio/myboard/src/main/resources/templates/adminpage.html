@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>adminpage</title>
+		<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<!-- Bulma Version 0.8.x-->
+		<link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/forum.css">
+	</head>
+	<body>
+	<article class="message is-primary">
+  <div class="message-header">
+    <p>관리자페이지</p> 유저들
+    <a th:href="@{/}"><button class="delete" aria-label="delete"></button></a>
+  </div>
+  <form th:action="@{adminpage}" method="post">
+  <table class="table" style="width:80%; margin-left: 10%; margin-top: 20px;" >
+    <thead>
+    <tr>
+        <th><abbr title="uid">UID(게시물보기)</abbr></th>
+        <th><abbr title="upw">UPW</abbr></th>
+        <th><abbr title="uname">UNAME</abbr></th>
+         <th><abbr title="delete">REMOVE</abbr></th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr th:each="list: ${userlist}" th:if="${list.uid!='ADMINadmin'}">
+        <td ><a th:href="@{/userboard(uid=${list.uid})}">[[${list.uid}]]</a></td>
+        <td th:text="${list.upw}"></td>
+        <td th:text="${list.uname}"></td>
+        <td><button class="delete" aria-label="delete" name="uid" th:value="${list.uid}" type="submit" onclick="alert('유저가 삭제되었습니다.')"></button></td>
+    </tr>
+    </tbody>
+</table>
+    </form>
+</article>
+	</body>
+</html>
+

@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>accessDenied</title>
+		<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<!-- Bulma Version 0.8.x-->
+		<link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/forum.css">
+	</head>
+<body>
+	<article class="message is-info">
+  <div class="message-header">
+    <p>Info</p>
+    <a th:href="@{/login}"><button class="delete" aria-label="delete"></button></a>
+  </div>
+  <div class="message-body">
+    관리자 전용페이지 입니다. 관리자 아이디로 로그인해주세요.
+  </div>
+</article>
+</body>
+</html>
