@@ -1,0 +1,40 @@
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="utf-8">
+    <title>비밀번호 변경</title>
+     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css'>
+      <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="login">
+  <div class="login-card">
+
+    <div class="card-title">
+      <h1>비밀번호 변경</h1>
+    </div>
+<form method="post">
+    <div class="content" th:with="member=${#authentication.principal.member}">
+
+         <input id="email" type="text" name="uid" title="id" placeholder="ID" th:value="${member.uid}" readonly="readonly" >
+        <input id="password" type="password" name="upw" title="password" placeholder="New Password">
+        <input id="email" type="text" name="uname"  title="name" th:value="${member.uname}"  readonly="readonly">
+         <div class="level options">
+          <div class="checkbox level-left">
+            <input type="hidden" name="roles[0].roleName"  value="GUEST">
+          </div>
+        </div>
+       <button type="submit" class="btn btn-primary" onclick="alert('비밀번호가 변경되었습니다. 다시로그인해주세요.')">변경하기</button><br>
+       <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    </div>
+    </form>
+    
+  </div>
+</div>
+</body>
+
+</html>
+
+
